@@ -10,7 +10,7 @@ export const getAllPokemons = (req: Request, res: Response, next: NextFunction) 
             response.on("data", (chunk) => { data += chunk })
             response.on('end', () => {
                 const fullResponse: PokemonResponse = JSON.parse(data);
-                res.json(fullResponse.results);
+                res.json(fullResponse.results.sort((a, b) => { if (a.name < b.name) return -1; if(a.name > b.name) return 1;  return 0; }));
             });
         }).on("error", (err) => {
             next(createHttpError(err.message));
