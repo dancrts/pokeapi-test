@@ -1,10 +1,9 @@
 import { InferSchemaType, Schema, model } from "mongoose";
-import { TrainerDTO } from "./dtos/trainer.dto";
 
-const TrainerSchema = new Schema<TrainerDTO>({
+const TrainerSchema = new Schema({
     name: { type: String, required: true },
     lastname: { type: String, required: true },
-    phone: { type: Number, required: true },
+    phone: { type: Number, required: true, unique: true },
     medals: { type: [String], required: true }
 }, { timestamps: true })
 

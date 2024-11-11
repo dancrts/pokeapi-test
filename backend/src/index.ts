@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 
 import app from "./app";
 
+//Agregaria ENValid, pero serian demasiadas librerias para un proyecto tan pequeño
 const mongoURL = process.env.MONGO_URL!;
 const port = process.env.PORT!;
 
